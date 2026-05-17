@@ -17,6 +17,11 @@ const matchRouter = require('./routes/match');
 app.use('/api/candidates', candidatesRouter);
 app.use('/api/match', matchRouter);
 
+// Default route for backend health check
+app.get('/', (req, res) => {
+  res.send('AI Shortlister Backend is running!');
+});
+
 const PORT = process.env.PORT || 5000;
 
 async function startServer() {
